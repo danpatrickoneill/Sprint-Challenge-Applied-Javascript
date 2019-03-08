@@ -1,6 +1,9 @@
 .width-100 {
   width: 100%;
 }
+.width-80 {
+  width: 80%;
+}
 .border-bottom-grey {
   border-bottom: 1px solid lightgrey;
 }
@@ -299,6 +302,6 @@ body {
   transform: translate(0, -50%);
 }
 .carousel img {
-  width: 100%;
+  width: 80%;
   display: none;
 }
