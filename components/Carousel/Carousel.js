@@ -6,6 +6,9 @@ class Carousel {
     this.images = carousel.querySelectorAll("img");
 
     this.index = 0;
+    
+    
+    
     // this.imgCurrent = this.images[this.index];
     // this.imgNext = this.images[this.index + 1];
     // this.imgPrevious = this.images[this.index - 1];
@@ -20,26 +23,31 @@ class Carousel {
   }
 
   nextImage() {
-    if (this.index < this.images.length - 1) {
       this.index++;
-      this.images[this.index - 1].style.display = "none";
+      this.loopingIndex = this.index % this.images.length
+      
+      console.log(this.index)
+      console.log(this.loopingIndex)
+      this.images.forEach(img => img.style.display = "none");
     
       // Invisibilify the element, then bring it back in   
-      this.images[this.index].style.opacity = 0.25
-      this.images[this.index].style.display = "block";
-      TweenLite.to(this.images[this.index], .75, {opacity: 1})
-    }
+      this.images[this.loopingIndex].style.opacity = 0.25
+      this.images[this.loopingIndex].style.display = "block";
+      TweenLite.to(this.images[this.loopingIndex], .75, {opacity: 1})
+
   }
   previousImage() {
-    if (this.index > 0) {
-      this.index--;      
-      this.images[this.index + 1].style.display = "none";
+      this.index--;
+      this.loopingIndex = Math.abs(this.index) % this.images.length    
+
+      console.log(this.index)
+      console.log(this.loopingIndex)  
+      this.images.forEach(img => img.style.display = "none");
 
       // Invisibilify the element, then bring it back in   
-      this.images[this.index].style.opacity = 0.25
-      this.images[this.index].style.display = "block";
-      TweenLite.to(this.images[this.index], .75, {opacity: 1})
-    }
+      this.images[this.loopingIndex].style.opacity = 0.25
+      this.images[this.loopingIndex].style.display = "block";
+      TweenLite.to(this.images[this.loopingIndex], .75, {opacity: 1})
   }
 }
 let carousel = document.querySelector(".carousel");
