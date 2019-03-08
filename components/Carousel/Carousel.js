@@ -24,7 +24,7 @@ class Carousel {
 
   nextImage() {
       this.index++;
-      this.loopingIndex = this.index % this.images.length
+      this.loopingIndex = Math.abs(this.index) % this.images.length
       
       console.log(this.index)
       console.log(this.loopingIndex)
